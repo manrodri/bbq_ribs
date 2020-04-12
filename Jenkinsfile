@@ -5,7 +5,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'ls -alh'
                 // copy everything to bucket
             }
         }
@@ -18,7 +17,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                //  upload everything to bucket
+                //  uploadaws s3
+                sh 'aws s3 cp web/  s3://bbq-site-dev-bucket/ --recursive '
+
             }
         }
     }
