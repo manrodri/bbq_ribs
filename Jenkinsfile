@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                ls -alh
+                sh 'ls -alh'
                 // copy everything to bucket
             }
         }
